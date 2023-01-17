@@ -6,7 +6,4 @@ import {AuthModule} from "./auth/auth.module";
 @Module({
   imports: [AuthModule, UserModule, BookmarkModule],
 })
-export class AppModule {
-  barev:"adjas"
-  '/hello': "asd";
-}
+export class AppModule {}
