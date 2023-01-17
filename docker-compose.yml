@@ -1,0 +1,25 @@
+version : '3.8'
+#Define version of docker compose
+services:
+  #Define docker container we want to run
+  dev-db:
+    #Name of our container
+    image: postgres:15
+    #Postgres relational db on version 15
+
+    #Image will be imported on Port 5434
+    #DB will be running on port 5432
+    #       ↓
+    ports:
+      - 5434:5432
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123
+      POSTGRES_DB: nest
+      #Enviroment variables
+    networks:
+      - nestjsapp
+networks:
+  #Layer that allow services to communicate with each other
+  nestjsapp:
+
