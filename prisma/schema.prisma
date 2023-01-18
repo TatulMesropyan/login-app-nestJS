@@ -7,23 +7,31 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url  = env("DATABASE_URL")
-
+  url      = env("DATABASE_URL")
 }
 
 model User {
-    id Int @id @default(autoincrement())
-    email String @unique
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt(0
+  email String @unique
+  hash  String
 
-    firstName String
-    lastName String
+  firstName String
+  lastName  String
 }
+
 // Initin User model
 // AutoIncrementing id
 
 model Bookmark {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
+  title       String?
+  description String?
+  //? is for option
+  link        String
 }
